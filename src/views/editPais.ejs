@@ -1,0 +1,198 @@
+<div class="container form-container">
+  <h1 class="titulo-form">Modificar País</h1>
+  <form action="" method="POST" id="edit-pais-form">
+    <div class="row">
+      <!-- Nombre comun del país -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="nombreComun">Nombre Común</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreComun"
+          name="nombreComun"
+          value="<%= pais.name.common %>"
+          required
+        />
+        <div id="nombreComunError" class="text-danger"></div>
+      </div>
+
+      <!-- Nombre oficial del pais -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="nombreOficial">Nombre Oficial</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreOficial"
+          name="nombreOficial"
+          value="<%= pais.name.nativeName.get('spa').official %>"
+          required
+        />
+        <div id="nombreOficialError" class="text-danger"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Nombre de la capital -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="nombreCapital">Capital</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreCapital"
+          name="nombreCapital"
+          value="<%= pais.capital %>"
+          required
+        />
+        <div id="nombreCapitalError" class="text-danger"></div>
+      </div>
+
+      <!-- Fronteras -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="fronteras">Fronteras</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fronteras"
+          name="fronteras"
+          placeholder="ABC, XYZ"
+          value="<%= pais.borders %>"
+          required
+        />
+        <small class="form-text text-muted"
+          >Separe las fronteras con comas.</small
+        >
+        <div id="fronterasError" class="text-danger"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Area -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="area">Área</label>
+        <input
+          type="number"
+          class="form-control"
+          id="area"
+          name="area"
+          min="100"
+          value="<%= pais.area %>"
+          required
+        />
+        <div id="areaError" class="text-danger"></div>
+      </div>
+
+      <!-- Poblacion -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="poblacion">Población</label>
+        <input
+          type="number"
+          class="form-control"
+          id="poblacion"
+          name="poblacion"
+          min="100"
+          value="<%= pais.population %>"
+          required
+        />
+        <div id="poblacionError" class="text-danger"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Gini -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="gini">Gini</label>
+        <input
+          type="text"
+          class="form-control"
+          id="gini"
+          name="gini"
+          value="<%= Object.keys(pais.gini).map(key => `${pais.gini[key]}`).join(', ') %>"
+          required
+        />
+        <div id="giniError" class="text-danger"></div>
+      </div>
+
+      <!-- Zonas Horarias -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="zonasHorarias">Zonas Horarias</label>
+        <input
+          type="text"
+          class="form-control"
+          id="zonasHorarias"
+          name="zonasHorarias"
+          placeholder="UTC+08:00, UTC-06:00"
+          value="<%= pais.timezones %>"
+          required
+        />
+        <small class="form-text text-muted"
+          >Separe las zonas horarias con comas.</small
+        >
+        <div id="zonasHorariasError" class="text-danger"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Mapas -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="mapas">Mapas</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mapas"
+          name="mapas"
+          placeholder="Googlemaps, OpenStreetMaps"
+          value="<%= Object.keys(pais.maps).map(key => `${pais.maps[key]}`).join(', ') %>"
+          required
+        />
+        <small class="form-text text-muted">Separe los mapas con comas.</small>
+        <div id="mapasError" class="text-danger"></div>
+      </div>
+
+      <!-- bandera -->
+      <div class="col-md-6 form-group mb-3">
+        <label for="bandera">Bandera</label>
+        <input
+          type="text"
+          class="form-control"
+          id="bandera"
+          name="bandera"
+          value="<%= pais.flags.svg%>"
+          required
+        />
+        <div id="banderaError" class="text-danger"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Creador -->
+      <div class="col-md-12 form-group mb-3">
+        <label for="creador">Creador</label>
+        <input
+          type="text"
+          class="form-control"
+          id="creador"
+          name="creador"
+          value="Uriel Summonte"
+          required
+        />
+        <div id="creadorError" class="text-danger"></div>
+      </div>
+    </div>
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit" class="btn-submit" data-id="<%= pais._id %>">
+      Modificar País
+    </button>
+    <!-- Botón de Cancelar -->
+    <button
+      type="button"
+      class="btn-cancel"
+      id="cancel-btn"
+      style="float: right"
+    >
+      Cancelar Acción
+    </button>
+  </form>
+  <script src="/js/editPais.js"></script>
+  <script src="/js/validaciones.js"></script>
+</div>
